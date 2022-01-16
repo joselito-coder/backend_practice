@@ -21,11 +21,7 @@ start()
 
 // middleware
 app.use(express.json())
-
-
-app.get('/hello',(req,res) =>{
-    res.send('Hello world')
-})
+app.use(express.static('./public'))
 
 app.use("/api/v1/tasks",tasks)
 
