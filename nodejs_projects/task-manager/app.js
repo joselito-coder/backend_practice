@@ -4,6 +4,7 @@ const tasks = require('./routes/tasks')
 const port = 3000
 const connectDB = require('./db/connect')
 require('dotenv').config( )
+const notFound = require('./middleware/NotFound');
 
 const start = async () =>{
     try{
@@ -24,5 +25,6 @@ app.use(express.json())
 app.use(express.static('./public'))
 
 app.use("/api/v1/tasks",tasks)
+app.use(notFound)
 
 
