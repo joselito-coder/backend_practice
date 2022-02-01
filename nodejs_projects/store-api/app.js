@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // Products routes
-app.use('/api/v1/products',productRouter)
+app.use('/api/v1/products', productRouter)
 
 
 
