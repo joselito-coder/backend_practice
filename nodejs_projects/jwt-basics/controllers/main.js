@@ -1,4 +1,4 @@
-const CustomAPIError = require('../errors/custom-error')
+const { BadRequestError } = require('../errors/')
 const jwt = require('jsonwebtoken')
 
 
@@ -8,7 +8,7 @@ const login = async (req, res) => {
     const id = new Date().getDate()
 
     if (!username || !password) {
-        throw new CustomAPIError('Please provide username and password', 400)
+        throw new BadRequestError('Please provide username and password')
     }
 
     const token = jwt.sign({ id, username }, process.env.JWT_SECRET, { expiresIn: '30d' })
@@ -17,24 +17,12 @@ const login = async (req, res) => {
 }
 
 const dashboard = async (req, res) => {
+    const { user } = req
 
-    const authHeader = req.headers.authorization;
+    const randomNumber = Math.floor(Math.random() * 100);
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        throw new CustomAPIError('No token provided', 401);
-    }
+    return res.status(200).json({ msg: `Hello, Lolicon ${user.username}`, secret: `Hi there lolicon, your loli code ${randomNumber}` })
 
-    const token = authHeader.split(' ')[1]
-
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const randomNumber = Math.floor(Math.random() * 100);
-
-        return res.status(200).json({ msg: `Hello, Lolicon ${decoded.username}`, secret: `Hi there lolicon, your loli code ${randomNumber}` })
-
-    } catch (error) {
-        throw new CustomAPIError('Not Authorized to access this route', 401)
-    }
 
 
 }
