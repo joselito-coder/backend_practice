@@ -1,7 +1,10 @@
 
+
 const getAllJobs = (req, res) => {
     res.send("Get all Jobs")
 }
+
+
 
 const getJob = (req, res) => {
     res.send("Get single job")
