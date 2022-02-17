@@ -5,7 +5,6 @@ const getAllJobs = (req, res) => {
 }
 
 
-
 const getJob = (req, res) => {
     res.send("Get single job")
 }
@@ -15,7 +14,8 @@ const updateJob = (req, res) => {
 }
 
 const createJob = (req, res) => {
-    res.send("Create job")
+    // res.send("Create job")
+    return res.json(req.user)
 }
 
 const deleteJob = (req, res) => {
