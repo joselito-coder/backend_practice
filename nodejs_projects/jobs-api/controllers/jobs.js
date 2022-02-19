@@ -23,7 +23,7 @@ const createJob = async (req, res) => {
 
     const job = await Job.create(req.body)
 
-    return res.json({job})
+    return res.json({ job })
 }
 
 const deleteJob = (req, res) => {
