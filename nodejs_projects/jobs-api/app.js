@@ -26,7 +26,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 // use middleware
 app.use(express.json());
 
-app.set('trust proxy',1);
+app.set('trust proxy', 1);
 
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
