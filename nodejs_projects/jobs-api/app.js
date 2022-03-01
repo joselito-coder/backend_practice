@@ -65,4 +65,4 @@ const start = async () => {
 
 start();
 
-// lazy weekend
+// ,) Why am I so lazy?
