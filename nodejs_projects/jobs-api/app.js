@@ -65,4 +65,4 @@ const start = async () => {
 
 start();
 
-// sunday
+// daily
