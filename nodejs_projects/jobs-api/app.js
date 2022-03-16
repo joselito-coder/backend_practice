@@ -65,4 +65,4 @@ const start = async () => {
 
 start();
 
-// daily IDK I WAS TOO LAZY TODAY
+// daily IDK 
